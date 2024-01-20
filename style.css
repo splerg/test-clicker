@@ -1,0 +1,55 @@
+.stats{text-align: left;}
+.upgTitle{
+    text-align: right;
+    color: white;
+}
+body{background-color: rgb(50, 50, 50);}
+.upgradebox{
+    background-color: black;
+    position: fixed;
+    right: 0;
+}
+.upgrade{
+    float: right;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.clickUpgBox{
+    position: fixed;
+    left: 0;
+    background-color: black;
+}
+.ClickUpgTitle{
+    color: white;
+}
+.clickupgrade{
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.stats{
+    color: white;
+}
+button:enabled{
+    cursor: pointer;
+}
+button:disabled{
+    cursor: not-allowed;
+    background-color: white;
+    color: black;
+}
+#mainclicker{
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
+.mainalign{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+/*bruh why are comments like this in css, loser language fr*/
