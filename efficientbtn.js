@@ -87,7 +87,7 @@ buyClickUpgrade(clickupg, clickupgprice, clickupgpower, basiclabel);
 cps_click = () => {
     clicks += cps
     clickscounter.textContent = ("Clicks: " + numberWithCommas(clicks))
-    sitetitle.textContent = ((clicks) + " Clicks - Clicker Game")
+    sitetitle.textContent = (numberWithCommas(clicks) + " Clicks - Clicker Game")
 }
 
 setInterval(cps_click, 1000)
