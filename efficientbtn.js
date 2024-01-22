@@ -4,6 +4,7 @@ let sitetitle = document.getElementById("sitetitle");
 let clickscounter = document.getElementById("clickcounter");
 let mainbtn = document.getElementById("mainclicker");
 let cpscounter = document.getElementById("cps");
+let clickpowerlabel = document.getElementById("clickpower");
 let abbreviation = ["", "m", "b", "t", "qa", "qi", "sx", "sp", "oc", "no", "dc"];
 
 //Autoclickers
@@ -16,6 +17,10 @@ let clickupg = document.getElementById("basicupgrade");
 let clickupgprice = 5000;
 let clickupgpower = 1;
 let basiclabel = document.getElementById("basiclabel");
+let simpleupg = document.getElementById("simpleupgrade");
+let simpleupgprice = 10000;
+let simpleupgpower = 2;
+let simplelabel = document.getElementById("simplelabel")
 
 //upgrade variables
 let autoclickerowned = 0;
@@ -58,7 +63,7 @@ buyAutoClick = (auto, price, autoowned, clickadd, label) => {
             autoowned += 1;
             cps += clickadd;
             cpscounter.textContent = ("CPS: " + cps);
-            price = (price += Math.round(price/100*15));
+            price = (price += Math.round(price/100*10));
             label.textContent = (" - Costs: "+ price +" (Owned: " + autoowned + ")");
         }
     }
@@ -75,19 +80,21 @@ buyClickUpgrade = (upg, upgprice, upgpower, upglabel) => {
             clicks -= upgprice;
             clickscounter.textContent = ("Clicks: " + numberWithCommas(clicks));
             clickpower += upgpower;
-            clickupg.disabled = true;
+            upg.disabled = true;
             upglabel.textContent = ("Owned!");
+            clickpowerlabel.textContent = ("Click Power: " + clickpower)
         }
     }
 }
 
 buyClickUpgrade(clickupg, clickupgprice, clickupgpower, basiclabel);
+buyClickUpgrade(simpleupg, simpleupgprice, simpleupgpower, simplelabel);
 
 //Autoclicking
 cps_click = () => {
-    clicks += cps
-    clickscounter.textContent = ("Clicks: " + numberWithCommas(clicks))
-    sitetitle.textContent = (numberWithCommas(clicks) + " Clicks - Clicker Game")
+    clicks += cps;
+    clickscounter.textContent = ("Clicks: " + numberWithCommas(clicks));
+    sitetitle.textContent = (numberWithCommas(clicks) + " Clicks - Clicker Game");
 }
 
 setInterval(cps_click, 1000)

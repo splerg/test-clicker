@@ -31,6 +31,7 @@ body{background: black;}
 }
 .stats{
     color: white;
+    text-align: center;
 }
 button:enabled{
     cursor: pointer;
@@ -38,7 +39,7 @@ button:enabled{
 button:hover{
     box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.499);
 }
-button:active{
+button:enabled:active{
     box-shadow: 0px 0px 10px 5px rgba(0, 255, 242, 0.499);
 }
 button:disabled{
@@ -52,6 +53,12 @@ button:disabled{
     width: 200px;
     height: 200px;
     border-radius: 100px;
+    display: flex;
+    margin: auto;
+}
+#mainclicker img{
+    width: 196.8px;
+    height: 196.8px;
 }
 .mainalign{
     display: flex;
