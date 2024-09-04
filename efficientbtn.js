@@ -39,6 +39,10 @@ let superlabel = document.getElementById("superlabel")
 let cps = 0;
 let clickpower = 1;
 
+window.addEventListener('beforeunload', savedata = () => {
+    localStorage.setItem('clickCount', clicks);
+})
+
 //Formatting
 function numberWithCommas(x) {
     x = x.toString();
