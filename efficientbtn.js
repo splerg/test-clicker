@@ -1,5 +1,5 @@
 //variables
-let clicks = 0;
+let clicks = localStorage.getItem('clickCount') ? parseInt(localStorage.getItem('clickCount')) : 0;
 let sitetitle = document.getElementById("sitetitle");
 let clickscounter = document.getElementById("clickcounter");
 let mainbtn = document.getElementById("mainclicker");
