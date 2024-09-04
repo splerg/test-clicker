@@ -56,6 +56,7 @@ function numberWithCommas(x) {
 mainbtn.onclick = () => {
     clickCount += clickpower;
     clickscounter.textContent = ("Clicks: " + numberWithCommas(clickCount));
+    localStorage.setItem('clickCount', clickCount);
 }
 
 //Autoclicker Buy
@@ -63,6 +64,7 @@ buyAutoClick = (auto, price, autoowned, clickadd, label) => {
     auto.onclick = () => {
         if (clickCount - price >= 0) {
             clickCount -= price;
+            localStorage.setItem('clickCount', clickCount);
             clickscounter.textContent = ("Clicks: " + numberWithCommas(clickCount));
             autoowned += 1;
             cps += clickadd;
@@ -82,6 +84,7 @@ buyClickUpgrade = (upg, upgprice, upgpower, upglabel) => {
     upg.onclick = () => {
         if (clickCount >= upgprice && clickCount - upgprice > 0) {
             clickCount -= upgprice;
+            localStorage.setItem('clickCount', clickCount);
             clickscounter.textContent = ("Clicks: " + numberWithCommas(clickCount));
             clickpower += upgpower;
             upg.disabled = true;
@@ -97,6 +100,7 @@ buyClickUpgrade(simpleupg, simpleupgprice, simpleupgpower, simplelabel);
 //Autoclicking
 cps_click = () => {
     clickCount += cps;
+    localStorage.setItem('clickCount', clickCount);
     clickscounter.textContent = ("Clicks: " + numberWithCommas(clickCount));
     sitetitle.textContent = (numberWithCommas(clickCount) + " Clicks - Clicker Game");
 }
