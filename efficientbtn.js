@@ -40,7 +40,7 @@ let cps = 0;
 let clickpower = 1;
 
 window.addEventListener('beforeunload', function () {
-    localStorage.setItem('clickCount', clickCount);
+    localStorage.setItem('clickCount', clicks);
 });
 
 //Formatting
