@@ -1,5 +1,5 @@
 //variables
-let clicks = localStorage.getItem('clickCount') ? parseInt(localStorage.getItem('clickCount')) : 0;
+let clickCount = localStorage.getItem('clickCount') ? parseInt(localStorage.getItem('clickCount')) : 0;
 let sitetitle = document.getElementById("sitetitle");
 let clickscounter = document.getElementById("clickcounter");
 let mainbtn = document.getElementById("mainclicker");
@@ -40,7 +40,7 @@ let cps = 0;
 let clickpower = 1;
 
 window.addEventListener('beforeunload', function () {
-    localStorage.setItem('clickCount', clicks);
+    localStorage.setItem('clickCount', clickCount);
 });
 
 //Formatting
@@ -54,16 +54,16 @@ function numberWithCommas(x) {
 
 //main button
 mainbtn.onclick = () => {
-    clicks += clickpower;
-    clickscounter.textContent = ("Clicks: " + numberWithCommas(clicks));
+    clickCount += clickpower;
+    clickscounter.textContent = ("Clicks: " + numberWithCommas(clickCount));
 }
 
 //Autoclicker Buy
 buyAutoClick = (auto, price, autoowned, clickadd, label) => {
     auto.onclick = () => {
-        if (clicks - price >= 0) {
-            clicks -= price;
-            clickscounter.textContent = ("Clicks: " + numberWithCommas(clicks));
+        if (clickCount - price >= 0) {
+            clickCount -= price;
+            clickscounter.textContent = ("Clicks: " + numberWithCommas(clickCount));
             autoowned += 1;
             cps += clickadd;
             cpscounter.textContent = ("CPS: " + cps);
@@ -80,9 +80,9 @@ buyAutoClick(Superclicker, superprice, superautoowned, superpower, superlabel);
 //Click Upgrades
 buyClickUpgrade = (upg, upgprice, upgpower, upglabel) => {
     upg.onclick = () => {
-        if (clicks >= upgprice && clicks - upgprice > 0) {
-            clicks -= upgprice;
-            clickscounter.textContent = ("Clicks: " + numberWithCommas(clicks));
+        if (clickCount >= upgprice && clickCount - upgprice > 0) {
+            clickCount -= upgprice;
+            clickscounter.textContent = ("Clicks: " + numberWithCommas(clickCount));
             clickpower += upgpower;
             upg.disabled = true;
             upglabel.textContent = ("Owned!");
@@ -96,9 +96,9 @@ buyClickUpgrade(simpleupg, simpleupgprice, simpleupgpower, simplelabel);
 
 //Autoclicking
 cps_click = () => {
-    clicks += cps;
-    clickscounter.textContent = ("Clicks: " + numberWithCommas(clicks));
-    sitetitle.textContent = (numberWithCommas(clicks) + " Clicks - Clicker Game");
+    clickCount += cps;
+    clickscounter.textContent = ("Clicks: " + numberWithCommas(clickCount));
+    sitetitle.textContent = (numberWithCommas(clickCount) + " Clicks - Clicker Game");
 }
 
 setInterval(cps_click, 1000)
