@@ -57,7 +57,7 @@ mainbtn.onclick = () => {
 //Autoclicker Buy
 buyAutoClick = (auto, price, autoowned, clickadd, label) => {
     auto.onclick = () => {
-        if (clicks >= price && clicks - price >= 0) {
+        if (clicks >= price && clicks - price > 0) {
             clicks -= price;
             clickscounter.textContent = ("Clicks: " + numberWithCommas(clicks));
             autoowned += 1;
